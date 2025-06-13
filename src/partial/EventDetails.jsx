@@ -131,14 +131,14 @@ const EventDetails = () => {
             <p>
               We believe that great events don’t just happen — they’re built. With detail-oriented execution and creative direction, we ensure that every frame, every interaction, and every moment delivers value.
             </p>
-            <div className="flex gap-5  w-full  overflow-hidden">
+            <div className="flex gap-5 max-md:flex-col  w-full  overflow-hidden">
               <img
-                className="object-center object-cover h-full w-[60%]"
+                className="object-center object-cover max-md:h-[50%] max-md:w-full w-[60%]"
                 src="https://images.unsplash.com/photo-1625539867671-af969da3a214"
                 alt=""
               />
               <img
-                className="object-center object-cover  h-full w-[40%]"
+                className="object-center object-cover  max-md:h-[50%] max-md:w-full h-full w-[40%]"
                 src="https://images.unsplash.com/photo-1628336358317-0582bfa7519d"
                 alt=""
               />

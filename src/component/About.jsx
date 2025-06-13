@@ -29,8 +29,12 @@ const About = () => {
           we plan magic you enjoy <br /> the moment
         </h1>
         <div
-          className="small max-md:hidden px-2 py-4 cursor-pointer bg-gray-300 rounded-full hover:bg-gray-200 transition"
-          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+          className="small max-md:hidden px-2 max-md:py-3 max-md:px-1 max-md:mt-[2rem] py-4 cursor-pointer bg-gray-300 rounded-full hover:bg-gray-200 transition"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <i
             className="ri-arrow-down-line"

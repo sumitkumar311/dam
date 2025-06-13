@@ -38,8 +38,11 @@ const Nav = () => {
     }, 100);
   };
 
-  const activeStyle = ({ isActive }) =>
-    isActive ? "text-gray-500" : "text-black";
+ const activeStyle = ({ isActive }) =>
+  isActive
+    ? "text-green-600 font-semibold hover:text-green-600"
+    : "text-black hover:text-green-600";
+
 
   const serviceItems = [
     { label: "Corporate", slug: "corporate" },
@@ -59,8 +62,8 @@ const Nav = () => {
           dam <br /> craft <br /> events.
         </Link>
         <ul className="nav-links flex gap-10 text-[0.8rem]  h-fit font-semibold  relative">
-          <li className="hidden sm:block">
-            <NavLink className={activeStyle} to="/">home</NavLink>
+          <li className="hidden sm:block ">
+            <NavLink className={activeStyle}  to="/">home</NavLink>
           </li>
           <li className="hidden sm:block">
             <NavLink className={activeStyle} to="/about">about</NavLink>
@@ -112,34 +115,43 @@ const Nav = () => {
 
       {/* Mobile Sidebar */}
       <div
-        ref={sidebarRef}
-        className="fixed top-0 right-0 h-screen w-[60%] bg-white z-[100] shadow-lg translate-x-full p-8 flex flex-col gap-8 uppercase font-semibold text-base sm:hidden"
-      >
-        <button
-          onClick={() => handleNavigate("/")}
-          className="text-left border-b border-zinc-300 pb-2"
-        >
-          Home
-        </button>
-        <button
-          onClick={() => handleNavigate("/about")}
-          className="text-left border-b border-zinc-300 pb-2"
-        >
-          About
-        </button>
-        <button
-          onClick={() => handleNavigate("/work")}
-          className="text-left border-b border-zinc-300 pb-2"
-        >
-          Work
-        </button>
-        <button
-          onClick={() => handleNavigate("/services")}
-          className="text-left border-b border-zinc-300 pb-2"
-        >
-          Services
-        </button>
-      </div>
+  ref={sidebarRef}
+  className="fixed top-0 right-0 h-screen w-[60%] bg-white z-[100] shadow-lg translate-x-full p-8 flex flex-col gap-8 uppercase font-semibold text-base sm:hidden"
+>
+  {/* Close Button (top-right) */}
+  <div className="flex justify-end">
+    <i
+      className="ri-close-line text-2xl cursor-pointer"
+      onClick={() => setMenuOpen(false)}
+    ></i>
+  </div>
+
+  <button
+    onClick={() => handleNavigate("/")}
+    className="text-left border-b border-zinc-300 pb-2"
+  >
+    Home
+  </button>
+  <button
+    onClick={() => handleNavigate("/about")}
+    className="text-left border-b border-zinc-300 pb-2"
+  >
+    About
+  </button>
+  <button
+    onClick={() => handleNavigate("/work")}
+    className="text-left border-b border-zinc-300 pb-2"
+  >
+    Work
+  </button>
+  <button
+    onClick={() => handleNavigate("/services")}
+    className="text-left border-b border-zinc-300 pb-2"
+  >
+    Services
+  </button>
+</div>
+
     </div>
   );
 };

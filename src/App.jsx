@@ -10,7 +10,7 @@ const App = () => {
   });
   return (
     <ReactLenis root> 
-      <div className="overflow-hidden p-5 flex flex-col gap-5   ">
+      <div className="overflow-hidden p-5  flex flex-col gap-5   ">
         <Nav />
         <Routing />
         <Contact/>
