@@ -46,7 +46,7 @@ const EventDetails = () => {
   }
 
   return (
-    <div>
+    <div className="px-20 max-md:px-4">
       <div className="hero w-full h-[90vh] mt-[5rem]">
         <h1 className="mmedium font-semibold uppercase">{data.title}</h1>
         <div className="relative w-full h-full">

@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import gsap from "gsap";
 
 // Video imports
 import main from "../assets/1.mp4";
@@ -8,9 +7,10 @@ import corporate from "../assets/corporate.mp4";
 import mall from "../assets/mall.mp4";
 import market from "../assets/market.mp4";
 import advertisement from "../assets/bike.mp4";
+import ScrollFloat from "./ScrollFloat";
+
 
 const EventSection = () => {
-  const cursorRef = useRef(null);
   const navigate = useNavigate();
 
   const videos = {
@@ -21,59 +21,16 @@ const EventSection = () => {
     product: advertisement,
   };
 
-  // Smooth, throttled custom cursor movement
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    let timeout;
-
-    const moveCursor = (e) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        gsap.to(cursor, {
-          x: e.clientX,
-          y: e.clientY,
-          duration: 0.3,
-          ease: "power3.out",
-        });
-      }, 10);
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
-    gsap.to(cursorRef.current, {
-      scale: 3,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  const handleMouseLeave = () => {
-    gsap.to(cursorRef.current, {
-      scale: 0,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
   const handleNavigate = (type) => {
     navigate(`/service/${type}`);
   };
 
   // Renders one video section
   const renderOverview = (id, label, heading, type, videoSize = "medium") => (
-    <div className="overview flex flex-col gap-5 w-full">
-      <p>{id}</p>
+    <div className="overview flex flex-col gap-3 w-full">
+      <p className="hidden">{id}</p>
       <div
         className="relative w-full"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={() => handleNavigate(type)}
       >
         <video
@@ -83,13 +40,13 @@ const EventSection = () => {
               el.onmouseleave = () => el.pause();
             }
           }}
-          className={`object-cover cursor-pointer rounded-2xl transition-all duration-300 ease-in-out ${
+          className={`object-cover cursor-pointer rounded-4xl transition-all duration-300 ease-in-out ${
             videoSize === "large"
               ? "h-[650px] w-[600px]"
               : videoSize === "full"
               ? "w-full h-[72vh]"
-              : "h-[400px] w-[800px]"
-          } max-md:w-full max-md:h-[400px]`}
+              : "h-[600px] w-[550px]"
+          } max-md:w-full max-md:h-[250px]`}
           muted
           playsInline
           preload="metadata"
@@ -97,30 +54,36 @@ const EventSection = () => {
         />
       </div>
       <div className="flex gap-2 items-center">
-        <div className="bg-black h-[12px] w-[12px] rounded-full"></div>
-        <p className="uppercase small">{label}</p>
       </div>
-      <h1 className="medium uppercase leading-none">{heading}</h1>
+      <h1 className="medium">
+        <span className="font-semibold">
+
+        {label} - <br /> 
+        </span>
+        
+        {heading}</h1>
     </div>
   );
 
   return (
-    <div className="mt-[2rem] relative">
-      {/* Custom Cursor */}
-      <div
-        ref={cursorRef}
-        className="pointer-events-none fixed top-0 left-0 w-[10px] h-[10px] rounded-full z-[100] bg-black"
-        style={{ transform: "translate(-50%, -50%) scale(0)" }}
-      />
-
-      <h1 className="mmedium font-semibold uppercase">Event moments</h1>
+    <div className="mt-[2rem] relative max-md:rounded-none  bg-black text-white p-40 max-lg:p-4 max-md:py-20">
+      <ScrollFloat
+            animationDuration={1}
+            ease='back.inOut(2)'
+            scrollStart='center bottom+=50%'
+            scrollEnd='bottom bottom-=40%'
+            stagger={0.03}
+          >
+            Our Innovative Efforts
+          </ScrollFloat>
+      {/* <h1 className="mlarge mb-[8rem] max-md:mb-[2rem] font-semibold ">Event Moments</h1> */}
 
       {/* First row */}
-      <div className="mt-[4rem] flex max-md:flex-col gap-20 w-full justify-between">
-        <div className="w-[60%] max-md:w-full">
+      <div className="mt-[4rem] flex max-md:flex-col gap-15 max-lg:gap-5 w-full justify-between">
+        <div className="w-[50%] max-md:w-full">
           {renderOverview(
             "01",
-            "corporate event",
+            "Corporate Event",
             "Turning corporate visions into unforgettable realities.",
             "corporate"
           )}
@@ -128,7 +91,7 @@ const EventSection = () => {
         <div className="w-[40%] mt-[10rem] max-md:mt-[2rem] max-md:w-full">
           {renderOverview(
             "02",
-            "mall activation",
+            "Mall Activation",
             "Turning Crowds into Customers.",
             "mall",
             "large"
@@ -148,11 +111,11 @@ const EventSection = () => {
       </div>
 
       {/* Last row */}
-      <div className="mt-[4rem] flex max-md:flex-col gap-20 w-full justify-between">
+      <div className="mt-[4rem] flex max-md:flex-col max-lg:gap-5 gap-15 w-full justify-between">
         <div className="w-[60%] max-md:w-full">
           {renderOverview(
             "04",
-            "market activation",
+            "Market Activation",
             "Where Movement Meets Marketing",
             "market"
           )}
@@ -160,7 +123,7 @@ const EventSection = () => {
         <div className="w-[40%] mt-[10rem] max-md:mt-[2rem] max-md:w-full">
           {renderOverview(
             "05",
-            "advertisement",
+            "Advertisement",
             "Smart Advertising. Real Results.",
             "advertisement",
             "large"

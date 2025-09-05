@@ -1,9 +1,15 @@
 import React from 'react'
+import foot from '../assets/foot.mp4'
+
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="mt-[5rem] max-md:mt-[1rem]">
+        <div className='bg-black text-white mt-[5rem]'>
+            <div className=' h-[100vh] max-md:h-[50vh] w-full'>
+                <video src={foot} autoPlay loop muted className='h-full w-full object-cover object-center'></video>
+                <h1></h1>
+            </div>
+            <footer className="mt-[5rem] pt-0 max-md:mt-[1rem] p-10">
                 <div className="flex justify-between gap-5 ">
                     <h1 className="medium">We would love to hear from you. <br /> Let's work — together.</h1>
                     <div className="flex flex-col gap-5 ">

@@ -2,87 +2,122 @@ import React from 'react'
 import deepak from "../assets/deepak.jpg"
 import mukesh from "../assets/mukesh.jpg"
 import ashish from "../assets/ashish.jpg"
+import main from "../assets/1.mp4"
+import TiltedCard from '../partial/TiltedCard'
+import Logo from '../partial/logo'
+
 
 const About = () => {
 
-  const teamData = [{
-    img: deepak,
-    name: "Deepak Sharma",
-    title: "Founder"
-  },
-  {
-    img: mukesh,
-    name: "Mukesh Kumar",
-    title: "Founder"
-  },
-  {
-    img: ashish,
-    name: "Ashish Jain",
-    title: "Founder"
-  },]
+  // const teamData = [{
+  //   img: deepak,
+  //   name: "Deepak Sharma",
+  //   title: "Founder"
+  // },
+  // {
+  //   img: mukesh,
+  //   name: "Mukesh Kumar",
+  //   title: "Founder"
+  // },
+  // {
+  //   img: ashish,
+  //   name: "Ashish Jain",
+  //   title: "Founder"
+  // },]
 
 
   return (
-    <div className='flex flex-col gap-20'>
-      <div className="mlarge font-extrabold flex flex-col mt-[10rem] max-md:mt-[2rem] justify-between h-[55vh] max-md:h-fit items-center tracking-tight uppercase">
-        <h1 className="leading-none text-center">
-          we plan magic you enjoy <br /> the moment
+    <div className='flex flex-col px-20 max-lg:px-4 gap-20'>
+
+      {/* Heading Section */}
+      <div className="mlarge font-bold flex flex-col gap-5 mt-[12rem] max-md:mt-[6rem] justify-center items-center">
+        <h1 className="leading-none max-md:text-left text-center tracking-tight w-[76%] max-md:w-full flex flex-wrap justify-center items-center gap-2">
+          we plan magic you enjoy the moment
         </h1>
-        <div
-          className="small max-md:hidden px-2 max-md:py-3 max-md:px-1 max-md:mt-[2rem] py-4 cursor-pointer bg-gray-300 rounded-full hover:bg-gray-200 transition"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <i
-            className="ri-arrow-down-line"
-            style={{
-              animation: "dropMove 2s ease-in-out infinite",
-              fontSize: "15px",
-              color: "#000",
-            }}
-          ></i>
+
+        <div className="relative vid flex justify-center w-full mt-[5rem]  h-[80vh] max-md:h-[40vh] overflow-hidden">
+          <video
+            className="h-full rounded-4xl w-[100%] object-cover"
+            src={main}
+            autoPlay
+            loop
+            muted
+          ></video>
         </div>
       </div>
+      <div className='px-20 max-lg:px-2'>
 
-      <div className='flex justify-between gap-40 max-md:gap-5 max-md:flex-col'>
-        <div>
-          <div className='flex gap-2 items-center   h-fit'>
+        <div className='flex py-20 max-lg:py-10 gap-40 max-md:gap-5 max-md:flex-col'>
+          <div>
+            <div className='flex gap-2 items-center   h-fit'>
 
-            <div className="bg-black h-[12px] w-[12px] rounded-full"></div>
-            <p className="uppercase small font-semibold">who we are</p>
+              <div className="bg-black h-[12px] w-[12px] rounded-full"></div>
+              <p className="uppercase small font-semibold">who we are</p>
+            </div>
           </div>
+
+          <h1 className='medium w-[60%] max-md:w-full'>Since our beginning, we have been dedicated to creating smooth, memorable, and meaningful events for our clients. From corporate gatherings to social celebrations, we bring ideas to life with creativity, planning, and flawless execution. With each event, our knowledge and experience grow, allowing us to design occasions that truly reflect our clients’ vision and leave lasting impressions on everyone who attends."</h1>
         </div>
 
-        <h1 className='normal  w-[60%] max-md:w-full max-md:text-start text-end leading-none'>We are explorers at heart, always searching for creative ways to make a meaningful impact and solve problems.</h1>
+        <div className='p-20 max-lg:p-3 '>
+
+          <div className='mt-[2rem] flex  max-md:flex-col gap-20 max-lg:gap-1'>
+            <div className='flex flex-col gap-20 max-lg:gap-10'>
+
+              <TiltedCard
+                imageSrc={mukesh}
+                captionText="Mukesh kumar - Founder"
+                containerHeight="500px"
+                containerWidth="450px"
+                imageHeight="500px"
+                imageWidth="450px"
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+
+              />
+
+              <TiltedCard
+                imageSrc={deepak}
+                captionText="Deepak Sharma - Founder"
+                containerHeight="500px"
+                containerWidth="450px"
+                imageHeight="500px"
+                imageWidth="450px"
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+
+              />
+            </div>
+            <div className='mt-[10rem] max-lg:mt-10'>
+              <TiltedCard
+                imageSrc={ashish}
+                captionText="Ashish jain - Founder"
+                containerHeight="600px"
+                containerWidth="450px"
+                imageHeight="600px"
+                imageWidth="450px"
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+
+              />
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div>
-        <div className='flex gap-2 items-center   h-fit'>
-          <div className="bg-black h-[12px] w-[12px] rounded-full"></div>
-          <p className="uppercase small font-semibold"> the team</p>
-        </div>
-
-        <div className='mt-[2rem] flex justify-between max-md:flex-col gap-5'>
-
-          {
-            teamData.map((data, i) => (
-              <div key={i} className='w-[30%] max-md:w-full flex flex-col  '>
-                <img src={data.img} className='w-full object-cover h-[70vh] max-md:object-top max-md:h-[40vh]' alt="" />
-                <p className=" medium font-semibold">{data.name}</p>
-                <p className=" medium font-semibold text-zinc-600 leading-none">{data.title}</p>
-              </div>
-            ))
-          }
-        </div>
-
-      </div>
 
 
-
-      <div className=' min-h-[80vh] gap-8 flex flex-col justify-between'>
+      <div className=' min-h-[80vh] px-20 max-lg:px-2 gap-8 flex flex-col justify-between'>
         <div className='flex justify-between  max-md:gap-5 max-md:flex-col '>
 
           <div className='flex gap-2 items-center   h-fit'>
@@ -90,7 +125,7 @@ const About = () => {
             <p className="uppercase small font-semibold">our approach</p>
           </div>
 
-          <h1 className='normal  w-[60%] max-md:w-full max-md:text-start text-end leading-none'>First step to solving a problem is recognizing there is one.</h1>
+          <h1 className='medium w-[60%] max-md:w-full max-md:text-start text-end leading-none'>First step to solving a problem is recognizing there is one.</h1>
         </div>
 
         <div className='flex justify-between gap-2 max-md:flex-col'>
@@ -125,42 +160,126 @@ const About = () => {
 
       </div>
 
-      <div className=' flex flex-col gap-5 '>
-        <div className='flex justify-between gap-40 max-md:gap-5  max-md:flex-col'>
-          <div>
-            <div className='flex gap-2 items-center   h-fit'>
+      {/* new */}
+      <div>
+        <div>
 
-              <div className="bg-black h-[12px] w-[12px] rounded-full"></div>
-              <p className="uppercase small font-semibold">what we do</p>
+          <div className='flex px-20 max-lg:px-2 py-20 max-lg:py-10 gap-40 max-md:gap-5 max-md:flex-col'>
+
+            <div className='flex gap-2 items-center   h-fit'>
+              <p className="uppercase small font-semibold">We boldly go  where <br /> others hesitate.</p>
+            </div>
+
+            <div className='w-[62%] max-md:w-full'>
+              <h1 className='medium '>We create unforgettable events, and we’re great at it. Our team is full of passionate experts who know how to bring even the most complex ideas to life. From corporate gatherings to grand celebrations, we put our heart into every detail to make sure your event is a success.
+                <br />
+                <br />
+
+                Ordinary? Not us. For us, it’s more than just work—it’s about people, experiences, and memories. Every event we plan matters, and every client is special. We handle your events, your timelines, and your peace of mind with care—always.</h1>
+              <div className='flex gap-15 mt-[4rem]'>
+                <div>
+                  <h1 className='mlarge'>40+</h1>
+                  <p className='medium'>memebers</p>
+                </div>
+                <div>
+                  <h1 className='mlarge'>400+</h1>
+                  <p className='medium'>Events</p>
+                </div>
+                <div className=''>
+                  <h1 className='mlarge'>10 years</h1>
+                  <p className='medium'>Of Experience</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div className="relative vid flex justify-center w-full mt-[3rem]  h-[80vh] max-md:h-[40vh] overflow-hidden">
+            <video
+              className="h-full rounded-4xl w-[100%] object-cover"
+              src={main}
+              autoPlay
+              loop
+              muted
+            ></video>
+          </div>
+        </div>
+
+        <div className='flex flex-col gap-15 mt-[10rem] max-lg:mt-5'>
+          <div className=' border-b-2  py-10 ml-20 max-lg:ml-0'>
+            <h1 className='mlarge font-semibold leading-none '>Agency of the Year <br />
+              according to <br />Suzuki & TVS</h1>
+          </div>
+          <div className='flex px-20 max-lg:px-2  max-lg:py-0 gap-40 max-md:gap-5 max-md:flex-col'>
+            <div className='flex gap-2 items-center   h-fit'>
+              <p className="uppercase small font-semibold">Agency of the Year
+                <br />
+                according to Suzuki & TVS</p>
+            </div>
+            <div className='w-[60%] max-md:w-full'>
+              <h1 className='medium '>We know awards aren’t everything. But among the many recognitions we’ve received, we’re proud to highlight the most prestigious: being honored by Suzuki and TVS for our creativity, flawless execution, and unforgettable event experiences.</h1>
             </div>
           </div>
-          <h1 className='normal  w-[60%] max-md:w-full max-md:text-start text-end leading-none'>
-            Whether you're looking for exclusive events, premium access, or simply want to join a selective community,<span className=' font-semibold'> Dam Craft events </span> deliver an experience that transcends the ordinary.</h1>
-        </div>
-
-        <div className='relative flex justify-center items-center'>
-
-
-          <div className='w-full h-[80vh] max-md:h-[50vh] relative mt-[1rem]'>
-            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='h-full w-full  object-cover' alt="" />
-
-
+          <div className="relative vid flex justify-center w-full mt-[5rem] max-lg:mt-2  h-[80vh] max-md:h-[40vh] overflow-hidden">
+            <video
+              className="h-full rounded-4xl w-[100%] object-cover"
+              src={main}
+              autoPlay
+              loop
+              muted
+            ></video>
           </div>
-          <h1 className='absolute mmedium text-white w-[50%] max-md:w-[80%] text-center font-semibold leading-none'>Need someone who can organize an event for you? <br />
-            <span className='small font-normal'>you've just found us</span>
-          </h1>
+        </div>
+
+        <div className='flex flex-col gap-15 mt-[10rem] max-lg:mt-5'>
+          <div className=' border-b-2  py-10 ml-20 max-lg:ml-0'>
+            <h1 className='mlarge font-semibold leading-none '>We work with <br /> brands from all <br /> over the world</h1>
+          </div>
+          <Logo  />
+          <div className=' flex px-20 max-lg:px-2  max-lg:py-0 gap-40 max-md:gap-5 max-md:flex-col'>
+            <div className='flex gap-2 items-center   h-fit'>
+              <p className="uppercase small font-semibold">Feedback from
+                our clients</p>
+            </div>
+            <div className='w-[60%] max-md:w-full'>
+              <h1 className='medium '>Our event was managed by DAM craft events, and they handled everything from planning to execution with perfection. Their team was professional, creative, and always ready to listen to our ideas. They not only delivered exactly what we asked for but also added valuable suggestions that made the event even better. Working with them was smooth, and we were truly impressed with their dedication and collaborative approach.</h1>
+            </div>
+          </div>
+
+          <div className='mt-[2rem] flex  max-md:flex-col gap-10 max-lg:gap-1 w-full px-20 max-md:px-0'>
+            <div className='flex  w-[50%] max-md:w-full flex-col items-center  gap-20  max-lg:gap-10'>
+
+              <img className='rounded-4xl object-cover h-[65vh] max-md:h-[50vh] w-[80%] max-md:w-full ' src={mukesh} alt="Mukesh kumar - Founder" />
+              {/* <img className='rounded-4xl object-cover h-[65vh] max-md:h-[50vh] w-[80%] max-md:w-full ' src={deepak} alt="Deepak Sharma - Founder" /> */}
+
+            </div>
+            <div className='mt-[8rem] w-[50%] max-md:w-full max-lg:mt-10'>
+              <img className='rounded-4xl object-cover h-[65vh] max-md:h-[50vh] w-[80%] max-md:w-full ' src={ashish} alt="Ashish jain - Founder" />
+            </div>
+          </div>
+
+        </div>
+
+        <div className='flex flex-col gap-15 mt-[10rem] max-lg:mt-5'>
+          <div className=' border-b-2  py-10 ml-20 max-lg:ml-0'>
+            <h1 className='mlarge font-semibold leading-none '>Get to know us <br />
+              Check it out</h1>
+          </div>
+          <div className='flex px-20 max-lg:px-2  max-lg:py-0 gap-40 max-md:gap-5 max-md:flex-col'>
+            <div className='flex gap-2 items-center   h-fit'>
+              <p className="uppercase small font-semibold">Get to know us
+                <br />
+                Check it out</p>
+            </div>
+            <div className='w-[60%] max-md:w-full'>
+              <h1 className='medium '>We know awards aren’t everything. But among the many recognitions we’ve received, we’re proud to highlight the most prestigious: being honored by Suzuki and TVS for our creativity, flawless execution, and unforgettable event experiences.</h1>
+            </div>
+          </div>
         </div>
 
       </div>
+    </div>
 
-      
-
-
-
-
-      </div>
-
-      )
+  )
 }
 
-      export default About
+export default About

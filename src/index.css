@@ -12,18 +12,27 @@ body{
     padding: 0;
     /* background-color: #E5E9EB; */
 }
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+.scroll-float {
+  overflow: hidden;
+}
+.text-stroke {
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    color: transparent;
+    font-weight: 500;
   }
-  100% {
-    transform: translateX(-50%);
-  }
+
+.scroll-float-text {
+  display: inline-block;
+  font-size: clamp(1.8rem, 7vw, 5rem);
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
 }
 
-.animate-marquee {
-  animation: marquee 10s linear infinite;
+.char {
+  display: inline-block;
 }
+
 
 
 
